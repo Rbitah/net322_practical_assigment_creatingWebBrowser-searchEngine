@@ -31,8 +31,8 @@ class WebBrowser(QMainWindow):
 
     def navigate_to_url(self):
         url = self.link_Input.text()
-        if not url.startswith("http"):
-            if url == "index":
+
+        if url == "index":
              url = f"{self.base_url}"
              self.browser.setUrl(QUrl(url))
         elif url == "register":
