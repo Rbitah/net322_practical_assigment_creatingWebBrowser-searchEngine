@@ -44,7 +44,16 @@ class WebBrowser(QMainWindow):
             self.browser.setUrl(QUrl(url))    
         else:
             self.last_query = url
-            notFound= "Not Found"
+            notFound =f"""
+            <html>
+            <head><title>Page Not Found</title></head>
+            <body><h1>Page Not Found</h1>
+            <p>No local page found: <b>{self.last_query}</b></p>
+            <p>Search online instead:</p>
+            <a href='https://www.google.com/search?q={self.last_query}'>Search on Google</a>
+            </body>
+            </html>
+            """
             self.browser.setHtml(notFound)
         
     def update_url(self, url):
